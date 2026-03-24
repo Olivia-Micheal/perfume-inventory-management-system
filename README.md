@@ -1,6 +1,24 @@
 # perfume-inventory-management-system
 Excel-based inventory management system for a perfume business that tracks sales, purchases, stock levels, and profitability. Built using Power Pivot, DAX, and VBA automation
 
+## Table of Contents
+
+- [Project Overview](#project-overview)
+- [Business Problem](#business-problem)
+- [Tools and Technologies Used](#tools-and-technologies-used)
+- [System Architecture](#system-architecture)
+- [Data Model Structure](#data-model-structure)
+- [Sales Entry System](#sales-entry-system)
+- [Purchase Entry System](#purchase-entry-system)
+- [Product Price Update Module](#product-price-update-module)
+- [Automation Implemented with VBA](#automation-implemented-with-vba)
+- [Analytical Measures Built with DAX](#analytical-measures-built-with-dax)
+- [Dashboard and Business Insights](#dashboard-and-business-insights)
+- [System Workflow](#system-workflow)
+- [Skills Demonstrated and System Usage](#skills-demonstrated-and-system-usage)
+- [Conclusion](#conclusion)
+- [Author & Contact](#author--contact)
+
 
 ## Project Overview
 
