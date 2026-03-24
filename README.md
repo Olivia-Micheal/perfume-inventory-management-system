@@ -1337,3 +1337,10 @@ GitHub: [Olivia-Michael](https://github.com/Olivia-Michael)
 Email: anetohchinecherem@gmail.com
 
 
+## Download the Excel System
+
+You can download the full Excel inventory management system used in this project below.
+
+[Download the Excel File](./perfume-inventory-management-system.xlsx)
+
+Note: The file is shared for demonstration purposes. Some sheets and formulas are protected to preserve the system structure.
