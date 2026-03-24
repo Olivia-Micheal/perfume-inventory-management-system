@@ -1287,4 +1287,17 @@ These metrics power an **interactive dashboard** that visualizes business perfor
 The dashboard also includes **interactive filters for category, brand, and date**, allowing the business owner to drill down into specific product segments and analyze performance from multiple perspectives. A **VBA-powered refresh button** ensures that the dashboard always reflects the most recent transactions recorded in the system.
 
 Overall, this project demonstrates how structured data modeling, automation, and analytical reporting can be implemented using Excel to create a practical solution for managing real business operations. The system allows the business owner to move from manual tracking toward a **data-driven approach to monitoring sales performance, managing inventory levels, and making informed business decisions**.
-```
+
+
+
+## 14. Author & Contact
+
+**Olivia Michael**
+
+Data Analyst focused on using data to uncover business risks, performance patterns, and decision-making insights.
+
+LinkedIn: [Olivia Anetoh](https://www.linkedin.com/in/olivia-anetoh-955b94328/)  
+GitHub: [Olivia-Michael](https://github.com/Olivia-Michael)  
+Email: anetohchinecherem@gmail.com
+
+
