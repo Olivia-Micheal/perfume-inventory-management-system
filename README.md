@@ -656,3 +656,121 @@ When the Refresh button is clicked, the VBA script refreshes:
 This allows the business owner to immediately see updated business performance after recording transactions.
 
 
+## 11. Analytical Measures Built with DAX
+
+To generate business insights from the data model, I created several analytical measures using **DAX (Data Analysis Expressions)** in Power Pivot. These measures power the KPI cards and charts displayed on the dashboard.
+
+Because the tables are connected inside the Data Model, DAX allows the system to calculate metrics across multiple related tables such as **Sales, Purchases, Products, and Inventory**.
+
+![DAX Measures](images/dax_measures.png)
+
+*Example of DAX measures created in Power Pivot.*
+
+---
+
+### Total Revenue
+
+Total Revenue represents the total amount of money generated from all sales transactions recorded in the system.
+
+```
+Total Revenue = SUM(Sales[Total Amount])
+```
+
+This metric helps the business owner quickly see the overall sales performance of the store.
+
+---
+
+### Cost of Goods Sold (COGS)
+
+COGS represents the total cost of the products that have been sold.
+
+It is calculated by multiplying the cost price of each product by the quantity sold.
+
+```
+COGS = SUMX(Sales, Sales[Quantity] * Sales[Cost Price])
+```
+
+Tracking COGS allows the system to determine how much it actually cost the business to generate the recorded sales.
+
+---
+
+### Total Profit
+
+Total Profit measures how much money the business earned after subtracting the cost of goods sold from total revenue.
+
+```
+Total Profit = [Total Revenue] - [COGS]
+```
+
+This KPI helps the business owner understand whether the store is generating profit from its sales activities.
+
+---
+
+### Profit Margin
+
+Profit Margin shows the percentage of revenue that remains as profit after accounting for product costs.
+
+```
+Profit Margin = DIVIDE([Total Profit], [Total Revenue])
+```
+
+This metric helps evaluate how efficiently the business converts sales into profit.
+
+---
+
+### Total Orders
+
+Total Orders counts the number of sales transactions recorded in the system.
+
+Because each order has a unique **Sales ID**, the system can count the number of completed transactions.
+
+```
+Total Orders = DISTINCTCOUNT(Sales[Sales ID])
+```
+
+This helps the business owner track the number of orders processed over time.
+
+---
+
+### Current Stock Quantity
+
+Current Stock Quantity shows the number of product units currently available in inventory.
+
+This value is calculated using the Inventory table.
+
+```
+Current Stock = Total Purchased - Total Sold
+```
+
+This metric helps the business owner monitor stock availability and avoid running out of products.
+
+---
+
+### Cost of Goods Available (COGA)
+
+COGA represents the total value of inventory currently available in the store.
+
+It is calculated by multiplying the **cost price of each product** by the **current stock quantity**.
+
+```
+COGA = SUMX(Inventory, Inventory[Current Stock] * Inventory[Cost Price])
+```
+
+This KPI helps the business owner understand how much capital is currently tied up in inventory.
+
+---
+
+### Stock Risk Count
+
+Stock Risk Count identifies how many products are at risk of running out of stock.
+
+Products are flagged based on their **stock status**, which can be:
+
+- Low Stock  
+- Out of Stock  
+
+The measure counts the number of products whose stock status falls into either of these categories. This allows the business owner to quickly identify items that require immediate restocking.
+
+---
+
+Together, these measures transform raw transaction data into meaningful business insights. They allow the business owner to monitor sales performance, profitability, and inventory health from a single dashboard.
