@@ -774,3 +774,517 @@ The measure counts the number of products whose stock status falls into either o
 ---
 
 Together, these measures transform raw transaction data into meaningful business insights. They allow the business owner to monitor sales performance, profitability, and inventory health from a single dashboard.
+
+
+## 12. Dashboard and Business Insights
+
+The dashboard serves as the main monitoring interface of the system. It combines information from the **Sales, Purchases, Products, and Inventory tables** and presents the most important business metrics in a simple visual format.
+
+Instead of manually reviewing multiple tables to understand sales performance or stock levels, the dashboard provides a **central overview of the business in one place**.
+
+![Dashboard Overview](images/dashboard_overview.png)
+
+*Main dashboard showing key metrics, product performance, and inventory indicators.*
+
+---
+
+### Key Performance Indicators (KPIs)
+
+At the top of the dashboard, several KPI cards summarize the most important business metrics.
+
+These KPIs include:
+
+- **Total Revenue** – total sales generated from recorded transactions.
+- **Cost of Goods Sold (COGS)** – total cost of products sold.
+- **Total Profit** – earnings after subtracting product costs from revenue.
+- **Profit Margin** – percentage of revenue retained as profit.
+- **Total Orders** – number of sales transactions recorded.
+- **Current Stock Quantity** – number of product units currently available in inventory.
+- **Cost of Goods Available (COGA)** – total value of inventory currently in stock.
+- **Stock Risk Count** – number of products that are either low in stock or out of stock.
+
+These KPIs provide a quick summary of both **sales performance and inventory health**.
+
+---
+
+### Revenue Performance Over Time
+
+The dashboard includes a chart that tracks **revenue performance by month**.
+
+![Revenue Trend](images/revenue_trend.png)
+
+This visualization helps the business owner quickly identify:
+
+- periods of strong sales
+- periods where sales decline
+- overall revenue trends across time
+
+Tracking revenue trends makes it easier to understand customer demand and business growth patterns.
+
+---
+
+### Most Profitable Products
+
+The dashboard highlights **top-performing products based on profit contribution**.
+
+![Top Products by Profit](images/top_products_profit.png)
+
+This helps the business owner quickly identify products that generate the most profit. These insights can support decisions such as:
+
+- prioritizing restocking of high-performing products
+- focusing promotions on profitable items
+- identifying products that contribute the most to revenue growth
+
+---
+
+### Sales Channel Performance
+
+The dashboard also analyzes **sales performance by channel**.
+
+![Sales Channel Performance](images/sales_channel_performance.png)
+
+This allows the business owner to see where sales are coming from and understand which channels contribute the most revenue.
+
+---
+
+### Inventory Monitoring
+
+The system continuously monitors inventory by combining information from the **Sales and Purchases tables**.
+
+This allows the dashboard to highlight:
+
+- available inventory levels
+- products that are running low
+- products that are out of stock
+
+These insights help the business owner restock products before inventory shortages occur.
+
+---
+
+### Interactive Filters
+
+The dashboard includes several interactive filters that allow the user to explore the data from different perspectives.
+
+Available filters include:
+
+- **Category Filter**
+- **Brand Filter**
+- **Date Timeline**
+
+For example:
+
+If the user selects the **Body Spray** category, the dashboard automatically updates to show only the performance of body spray products.
+
+The user can then filter further by **Brand**, such as selecting **Smart Collection**, to analyze the performance of that specific brand within the category.
+
+This filtering capability allows the business owner to quickly answer questions such as:
+
+- Which category generates the most revenue?
+- Which brand performs best?
+- How are specific products performing over time?
+
+---
+
+### Dashboard Refresh Button
+
+Because the dashboard relies on pivot tables and the Excel Data Model, a **Refresh Button** powered by VBA was added to the dashboard.
+
+![Refresh Button](images/dashboard_refresh_button.png)
+
+After recording new sales or purchase transactions, the business owner can click the refresh button to update the entire model so that all charts and KPIs reflect the most recent data.
+
+---
+
+Overall, the dashboard transforms raw transaction data into actionable business insights, allowing the business owner to monitor **sales performance, profitability, and inventory health from a single interface**.
+
+
+
+## 13. System Workflow
+
+This section explains how data moves through the system from **daily transactions to business insights**.
+
+The system was designed so the business owner interacts with simple entry forms while the calculations, relationships, and reporting happen automatically in the background.
+
+---
+
+### Step 1 — Product Setup
+
+Every product must first be registered in the **Products Table** before it can be used anywhere in the system.
+
+This table stores the master information for each item, including the product category, brand, product name, size, cost price, and selling price.
+
+Each product is assigned a **unique Product ID**, which acts as the primary key used to connect product information across the system.
+
+![Products Table](images/products_table.png)
+
+---
+
+### Step 2 — Recording Sales
+
+Customer purchases are recorded using the **Sales Entry Form** rather than entering data directly into the sales table.
+
+Once a sale is submitted, the system automatically writes the transaction into the **Sales Table**, including information such as the product, quantity sold, price, sales channel, and transaction ID.
+
+Several fields are automatically generated or retrieved from the Products table, including:
+
+- Product ID  
+- Product Size  
+- Product Price  
+- Transaction Date  
+- Sales ID  
+
+This automation helps reduce manual errors and ensures consistent transaction records.
+
+![Sales Entry Form](images/sales_entry_form.png)
+
+---
+
+### Step 3 — Recording Purchases
+
+When the business owner restocks inventory from suppliers, the transaction is recorded through the **Purchase Entry Form**.
+
+The submitted data is written to the **Purchases Table**, which tracks incoming inventory quantities and vendor information.
+
+This allows the system to track how much inventory is entering the business over time.
+
+![Purchase Entry Form](images/purchase_entry_form.png)
+
+---
+
+### Step 4 — Inventory Calculation
+
+The system calculates the current stock level for each product by combining information from the **Sales Table** and the **Purchases Table**.
+
+The basic logic used is:
+
+Current Stock = Total Purchased − Total Sold
+
+These calculations populate the **Inventory Table**, which continuously tracks the available stock level for every product.
+
+![Inventory Table](images/inventory_table.png)
+
+---
+
+### Step 5 — Product Price Updates
+
+The system includes a **Product Price Update Module** that allows the business owner to adjust product prices when supplier costs change.
+
+When a new price is entered, the system updates the relevant fields in the **Products Table**, ensuring that future transactions reflect the updated cost and selling price.
+
+![Product Update Module](images/product_update_module.png)
+
+---
+
+### Step 6 — Data Model Processing
+
+Once transactions are recorded, the system processes the data using the **Excel Data Model**.
+
+Relationships connect the core tables:
+
+- Products  
+- Sales  
+- Purchases  
+- Inventory  
+
+These relationships allow Excel to combine information across multiple tables and support analytical calculations using **DAX measures**.
+
+---
+
+### Step 7 — Dashboard Insights
+
+The processed data is then visualized through the **dashboard**, which displays key business metrics, product performance indicators, and inventory status.
+
+Interactive filters allow the user to analyze performance by category, brand, or time period.
+
+![Dashboard Overview](images/dashboard_overview.png)
+
+---
+
+### Step 8 — System Refresh
+
+After recording new sales or purchases, the business owner can click the **Refresh Button** on the dashboard.
+
+This triggers a VBA macro that refreshes the entire model so that all KPIs, charts, and reports reflect the most recent data.
+
+---
+
+Through this workflow, the system converts **daily operational transactions into structured data and actionable business insights**, allowing the business owner to track sales performance, manage inventory efficiently, and make informed business decisions.
+
+
+
+## 14. Skills Demonstrated and System Usage
+
+This project required combining several technical and analytical skills to design a structured system that supports real business operations. The system was built not just as a spreadsheet, but as a small data-driven application that allows a business owner to manage sales, inventory, and pricing in an organized way.
+
+### Data Modeling
+
+The system uses the **Excel Data Model** to connect multiple tables through relationships. Instead of keeping data in separate spreadsheets, the tables were structured so that they behave more like a relational database.
+
+The main tables in the system include:
+
+- Products Table  
+- Sales Table  
+- Purchases Table  
+- Inventory Table  
+
+These tables are connected using **Product ID**, which allows Excel to combine information across different tables when generating reports and dashboard insights.
+
+![Data Model](images/data_model.png)
+
+---
+
+### Analytical Thinking
+
+The system converts raw operational data into meaningful business metrics.
+
+Using **DAX measures**, several key indicators were created to help evaluate the performance of the business, including:
+
+- Total Revenue  
+- Cost of Goods Sold  
+- Total Profit  
+- Profit Margin  
+- Total Orders  
+- Current Stock Quantity  
+- Cost of Goods Available  
+- Stock Risk Count  
+
+These metrics power the KPI cards and visual insights shown on the dashboard.
+
+---
+
+### Dashboard Design
+
+A dashboard was created to present business performance in a format that is easy for a business owner to understand.
+
+The dashboard provides insights into:
+
+- revenue performance over time  
+- most profitable products  
+- sales channel performance  
+- inventory health and stock risks  
+
+Interactive filters allow users to analyze performance by **category, brand, and time period**.
+
+---
+
+### Automation with VBA
+
+Several parts of the system were automated using **VBA macros** to reduce manual work and improve efficiency.
+
+Automation was implemented for:
+
+- submitting sales transactions
+- submitting purchase transactions
+- clearing entry forms
+- deleting incorrect entries
+- refreshing the dashboard and pivot tables
+
+These automations ensure that the system operates smoothly without requiring manual data manipulation.
+
+---
+
+### How to Use the System
+
+This system was designed so that the business owner interacts mainly with **entry forms and the dashboard**, while the calculations, relationships, and reporting happen automatically in the background. The steps below describe how the system can be used during normal daily operations.
+
+---
+
+#### 1. Register Products
+
+Before recording any sales or purchases, all products must first be registered in the **Products Table**.  
+This table acts as the master reference for every item sold in the store.
+
+For each product, the following information should be entered:
+
+- Category  
+- Brand  
+- Product Name  
+- Size  
+- Cost Price  
+- Selling Price  
+
+Each product automatically receives a **unique Product ID**, which is used throughout the system to connect the product with sales transactions, purchases, and inventory calculations.
+
+Once products are registered here, they automatically become available in the dropdown lists used in the entry forms.
+
+---
+
+#### 2. Record Customer Sales
+
+Whenever a customer purchases a product, the transaction is recorded using the **Sales Entry Form** rather than typing directly into the Sales table.
+
+To record a sale:
+
+1. Select the **Category** of the product  
+2. Select the **Brand**  
+3. Select the **Product Name**  
+4. Enter the **Customer Name**  
+5. Enter the **Quantity Purchased**  
+6. Select the **Sales Channel**  
+7. Click **Submit**
+
+Once the Submit button is clicked, the system automatically records the transaction in the **Sales Table**.
+
+Several fields are automatically generated or retrieved from the Products table, including:
+
+- Product ID  
+- Product Size  
+- Product Price  
+- Transaction Date  
+- Sales ID  
+
+This automation ensures that transactions are recorded consistently and reduces the risk of manual data entry errors.
+
+Additional controls in the form include:
+
+- **Clear Button** – resets the form so a new order can be recorded for the next customer  
+- **Delete Button** – removes the most recent transaction if it was entered incorrectly  
+
+---
+
+#### 3. Record Inventory Purchases
+
+When the business owner restocks products from suppliers or vendors, the transaction is recorded through the **Purchase Entry Form**.
+
+To record a purchase:
+
+1. Select the **Category**  
+2. Select the **Brand**  
+3. Select the **Product Name**  
+4. Enter the **Vendor Name**  
+5. Enter the **Quantity Purchased**  
+6. Click **Submit**
+
+Once submitted, the system records the purchase in the **Purchases Table**, increasing the available inventory for that product.
+
+This allows the system to track how much stock is entering the business over time.
+
+---
+
+#### 4. Update Product Prices
+
+If supplier costs change, the business owner can update product prices using the **Product Price Update Module**.
+
+To update prices:
+
+1. Select the product from the update form  
+2. Enter the **new cost price** or **new selling price**  
+3. Click the **Update Button**
+
+The system automatically updates the corresponding values in the **Products Table**, ensuring that future transactions use the updated prices.
+
+This prevents incorrect profit calculations when supplier prices change.
+
+---
+
+#### 5. Monitor Business Performance
+
+The **Dashboard** provides a visual overview of business activity and performance.
+
+The dashboard allows the business owner to monitor:
+
+- total revenue generated
+- cost of goods sold
+- total profit and profit margin
+- number of customer orders
+- most profitable products
+- sales performance by channel
+- inventory value and stock availability
+- products that are low in stock or out of stock
+
+These insights allow the business owner to quickly understand the financial and operational health of the business.
+
+---
+
+#### 6. Apply Filters for Deeper Analysis
+
+The dashboard includes interactive filters that allow the user to analyze performance from different perspectives.
+
+Available filters include:
+
+- **Category Filter**
+- **Brand Filter**
+- **Date Timeline**
+
+For example:
+
+If the business owner selects **Body Spray** in the Category filter, the dashboard immediately updates to show only the performance of body spray products.
+
+The user can then filter further by **Brand** to analyze the performance of a specific brand within that category.
+
+This filtering capability helps answer questions such as:
+
+- Which product category generates the most revenue?
+- Which brand is performing best?
+- How have sales changed over time?
+
+---
+
+#### 7. Refresh the Dashboard
+
+After recording new sales or purchase transactions, the business owner should click the **Refresh Button** on the dashboard.
+
+This triggers a VBA macro that refreshes the entire data model and updates:
+
+- pivot tables
+- KPI cards
+- charts
+- inventory calculations
+
+This ensures that the dashboard always reflects the **most recent business activity**.
+
+---
+
+By following this workflow, the system allows the business owner to efficiently record daily operations while automatically generating insights about sales performance, profitability, and inventory status.
+
+
+
+## 15. Conclusion
+
+This project presents a complete **Excel-based inventory and sales management system** designed for a perfume retail business. The goal of the system was to replace manual record keeping and guesswork with a structured process that allows the business owner to track sales, manage inventory, monitor profitability, and make better operational decisions.
+
+The system was built using **Microsoft Excel, Power Pivot (Data Model), DAX calculations, and VBA automation** to simulate a small business intelligence workflow inside a spreadsheet environment.
+
+At the core of the system is a structured **data model** connecting four main tables:
+
+- Products Table – stores master information about each product including category, brand, size, cost price, and selling price  
+- Sales Table – records every customer purchase transaction  
+- Purchases Table – records restocking transactions from suppliers  
+- Inventory Table – calculates current stock levels using purchase and sales activity  
+
+These tables are connected using **Product ID**, allowing Excel to combine data across multiple tables and behave more like a relational database rather than separate spreadsheets.
+
+To simplify daily operations for the business owner, the system includes **automated entry forms**:
+
+- A **Sales Entry Form** used to record customer orders without typing directly into the data tables  
+- A **Purchase Entry Form** used to record inventory restocking from vendors  
+- A **Product Price Update Module** that allows the business owner to update cost and selling prices when supplier costs change  
+
+The forms automatically retrieve product information such as **product ID, size, and pricing** from the Products table and record transactions directly into the corresponding tables.
+
+Several operational tasks were automated using **VBA macros**, including:
+
+- submitting sales and purchase transactions  
+- clearing entry forms between orders  
+- deleting incorrect transaction entries  
+- refreshing the dashboard and pivot model  
+
+These automations reduce manual work and help maintain consistent and reliable data records.
+
+Using the **Excel Data Model and DAX measures**, the system calculates key business metrics such as:
+
+- Total Revenue  
+- Cost of Goods Sold (COGS)  
+- Total Profit  
+- Profit Margin  
+- Total Orders  
+- Current Stock Quantity  
+- Cost of Goods Available (inventory value)  
+- Stock Risk indicators for low or out-of-stock products  
+
+These metrics power an **interactive dashboard** that visualizes business performance through KPI cards, revenue trend charts, product profitability analysis, sales channel performance, and inventory monitoring.
+
+The dashboard also includes **interactive filters for category, brand, and date**, allowing the business owner to drill down into specific product segments and analyze performance from multiple perspectives. A **VBA-powered refresh button** ensures that the dashboard always reflects the most recent transactions recorded in the system.
+
+Overall, this project demonstrates how structured data modeling, automation, and analytical reporting can be implemented using Excel to create a practical solution for managing real business operations. The system allows the business owner to move from manual tracking toward a **data-driven approach to monitoring sales performance, managing inventory levels, and making informed business decisions**.
+```
