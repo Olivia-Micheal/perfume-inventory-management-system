@@ -29,3 +29,38 @@ As the product catalog grows across multiple **categories, brands, and product s
 - When should a product be restocked?
 
 This project was developed to address these challenges by creating a structured system where product data, sales transactions, and purchase records are captured in a centralized environment. By organizing the data into connected tables and analytical models, the system replaces guesswork with reliable insights that help the business owner track inventory accurately, understand product performance, and make better operational decisions.
+
+
+
+## 4. Tools and Technologies Used
+
+The system was implemented using **Microsoft Excel with Power Pivot for data modeling, DAX for analytical calculations, and VBA for automation**. These components work together to transform raw transaction records into a structured inventory tracking and business analytics system.
+
+
+### Microsoft Excel
+
+Microsoft Excel serves as the core platform for the entire system. It is used to design the user interface for data entry, store structured business data, manage product records, and present analytical insights through a dashboard. Excel provides the environment where operational workflows, data modeling, and reporting are integrated into a single solution.
+
+### Excel Tables
+
+Structured Excel Tables are used to store and organize the core business data within the system. These include the **Products Table, Sales Table, Purchase Table, and Inventory Table**. Using structured tables ensures consistent data formatting, improves formula reliability, and allows the data model to reference transactional records dynamically as the system grows.
+
+### Excel Data Model (Power Pivot)
+
+The **Excel Data Model**, powered by Power Pivot, is used to connect the multiple tables that form the foundation of the system. Relationships are established between the Products table and the Sales, Purchases, and Inventory tables, creating a relational structure inside Excel. This allows data from separate operational tables to be analyzed together without duplicating information.
+
+### DAX (Data Analysis Expressions)
+
+DAX measures are used to perform analytical calculations within the data model. These calculations generate key business metrics such as **Total Revenue, Cost of Goods Sold, Total Profit, Profit Margin, Current Stock Quantity, and Inventory Value**. By placing these calculations in the data model, the system separates raw transaction data from analytical logic, enabling dynamic reporting through the dashboard.
+
+### VBA (Visual Basic for Applications)
+
+VBA is used to automate several operational tasks within the system. Macros control actions performed through the entry forms, including submitting sales transactions, recording purchase entries, clearing form inputs, deleting incorrect records, and refreshing the analytical dashboard. This automation improves usability and reduces the need for manual data manipulation.
+
+### Pivot Tables and Pivot Charts
+
+Pivot Tables and Pivot Charts are used as the reporting interface connected to the Excel Data Model. Instead of calculating metrics directly inside pivot tables, the system relies on DAX measures from the data model. Pivot tables therefore serve as the visualization layer that aggregates and displays the calculated metrics through the dashboard.
+
+### Data Validation
+
+Data Validation is used within the entry forms to create controlled dropdown selections for product attributes such as **category, brand, and product name**. This ensures that data entered into the system follows a consistent structure and prevents incorrect or inconsistent product entries. It also supports the hierarchical product structure used in the system, where product selection follows the relationship between category, brand, and individual product names.
