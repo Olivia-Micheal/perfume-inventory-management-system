@@ -119,7 +119,8 @@ Columns in this table include:
 
 This table acts as the **main reference table** for the entire system. Sales and purchase transactions both depend on the information stored here.
 
-*Screenshot: Products Table*
+
+<img width="952" height="452" alt="product_table" src="https://github.com/user-attachments/assets/e7aae866-b969-4a25-a430-7ec2760498c2" />
 
 ---
 
@@ -137,7 +138,8 @@ Each row represents one transaction and includes information such as:
 
 This table is used to calculate important business metrics such as revenue, profit, and product performance.
 
-*Screenshot: Sales Table*
+
+<img width="908" height="482" alt="sales_table" src="https://github.com/user-attachments/assets/18c33b30-646c-4295-9b2e-86c2c1674a37" />
 
 ---
 
@@ -154,7 +156,8 @@ Each row contains information such as:
 
 These records allow the system to track how much stock enters the business.
 
-*Screenshot: Purchase Table*
+
+<img width="887" height="484" alt="purchase_table" src="https://github.com/user-attachments/assets/ba729faf-05b9-4633-b954-2458bc470ee7" />
 
 ---
 
@@ -172,7 +175,8 @@ The table also calculates the **current value of inventory**, which shows how mu
 
 This table acts as the bridge between operational data and the analytical dashboard.
 
-*Screenshot: Inventory Table*
+
+<img width="919" height="478" alt="inventory_table" src="https://github.com/user-attachments/assets/f1066fe4-0c09-4870-b20f-a3ac485b5fca" />
 
 ---
 
@@ -188,12 +192,10 @@ Allows the user to record sales transactions using dropdown selections instead o
 
 Allows the user to record restocking transactions by selecting the product, vendor, and quantity purchased.
 
-These forms help reduce data entry mistakes and keep transaction records consistent.
-
-*Screenshot: Sales Entry Form*  
-*Screenshot: Purchase Entry Form*
+These forms help reduce data entry mistakes and keep transaction records consistent
 
 ---
+
 
 ### Price Update Module
 
@@ -207,8 +209,6 @@ Instead of editing the product table manually, the user can:
 4. Click the update button  
 
 The system automatically updates the product table.
-
-*Screenshot: Price Update Form*
 
 ---
 
@@ -225,7 +225,9 @@ These calculations power the dashboard and track business metrics such as:
 - Sales Performance  
 - Product Performance  
 
-*Screenshot: Dashboard*
+<img width="919" height="482" alt="dasboard_perfume_inventory" src="https://github.com/user-attachments/assets/f2895e6a-13fa-42f9-91b5-677fcf8a7f66" />
+
+*Screenshot: Interactive dashboard showing revenue, profit, inventory levels, and product performance with filters for category, brand, and date.*
 
 ---
 
@@ -280,7 +282,7 @@ Body Spray → Smart Collection → No.06
 
 This hierarchy makes the dashboard filters work properly. When a user selects a category like *Body Spray*, the dashboard automatically limits the brands and products shown to only those that belong to that category.
 
-![Products Table](images/products_table.png)
+<img width="952" height="452" alt="product_table" src="https://github.com/user-attachments/assets/e3824205-f133-4c83-b41c-e7edfc3c2378" />
 
 *Products table showing product hierarchy (Category → Brand → Product Name).*
 
@@ -363,7 +365,8 @@ Based on this result, the system assigns a **stock status** such as:
 
 This allows the business owner to quickly identify products that need restocking and avoid running out of popular items.
 
-![Inventory Table](images/inventory_table.png)
+
+<img width="919" height="478" alt="inventory_table" src="https://github.com/user-attachments/assets/884d2a24-cffe-4ce4-91b7-5f80dbc83b91" />
 
 *Inventory table calculating current stock using purchase and sales data.*
 
@@ -390,9 +393,10 @@ Because these tables are connected inside the Data Model, Excel can combine info
 
 Without this structure, pivot tables would struggle to properly combine sales, purchases, and product data across multiple sheets.
 
-![Power Pivot Relationships](images/data_model_relationships.png)
 
-*Power Pivot Diagram View showing relationships between Products, Sales, and Purchases tables.*
+<img width="943" height="502" alt="power_pivot_diagramview" src="https://github.com/user-attachments/assets/69e9d7d1-e67a-4936-95aa-07e337c2f110" />
+
+*Screenshot: Power Pivot Diagram View showing the relationships between the Products, Sales, and Purchases tables inside the Excel Data Model.*
 
 ---
 
@@ -415,7 +419,8 @@ This structure also made it possible to create analytical measures such as **Tot
 
 To make daily sales recording easier, I built a **Sales Entry Form** instead of entering transactions directly into the Sales table. This form acts as the interface where the business owner records customer orders in a structured way.
 
-![Sales Entry Form](images/sales_entry_form.png)
+
+<img width="255" height="326" alt="sales_entry_form" src="https://github.com/user-attachments/assets/c88545c7-ca72-47b3-8dd0-a43d279b00d2" />
 
 *Sales Entry Form used to record customer transactions.*
 
@@ -492,7 +497,8 @@ By introducing a structured entry form with automated fields and dropdown select
 
 In addition to recording sales, the system also includes a **Purchase Entry Form** used to record inventory restocking. This form allows the business owner to track products purchased from vendors and update stock levels in the system.
 
-![Purchase Entry Form](images/purchase_entry_form.png)
+
+<img width="217" height="266" alt="purchase_entry_form" src="https://github.com/user-attachments/assets/972d8f19-5b98-4bf3-aa47-6a5c0c3171da" />
 
 *Purchase Entry Form used to record inventory restocking transactions.*
 
@@ -560,7 +566,7 @@ By recording all restocking transactions through the Purchase Entry Form, the sy
 
 Product prices in a retail business can change over time, especially when restocking products from vendors. Instead of manually searching through the Products table to update prices, the system includes a **Product Price Update Module** that allows price changes to be handled quickly and safely.
 
-![Product Price Update Form](images/product_price_update_form.png)
+<img width="200" height="199" alt="update_form" src="https://github.com/user-attachments/assets/426ce2a4-0d1c-41d1-a591-11c740f1ee97" />
 
 *Product Price Update module used to modify product cost and selling prices.*
 
@@ -615,8 +621,13 @@ By introducing a controlled update form, the system ensures that product pricing
 
 To make the system easier to use and reduce repetitive manual work, I implemented several automations using VBA (Visual Basic for Applications).
 
-![VBA Automation Example](images/vba_code_example.png)
 
+<img width="943" height="509" alt="priceupdate_vba" src="https://github.com/user-attachments/assets/cdb64d6e-db42-4db5-8aaf-ed3e911e8e83" />
+
+---
+
+
+<img width="960" height="512" alt="vba2" src="https://github.com/user-attachments/assets/89b5799d-1306-4c30-a20f-61625aa26a7e" />
 
 These automations allow the forms and dashboard to interact directly with the system tables and data model, ensuring that transactions are recorded correctly while keeping the workflow simple for the business owner.
 
@@ -680,7 +691,8 @@ To generate business insights from the data model, I created several analytical 
 
 Because the tables are connected inside the Data Model, DAX allows the system to calculate metrics across multiple related tables such as **Sales, Purchases, Products, and Inventory**.
 
-![DAX Measures](images/dax_measures.png)
+
+<img width="313" height="364" alt="inventory_dax" src="https://github.com/user-attachments/assets/76732d65-aedd-4b5f-9614-c6beb73a9fda" />
 
 *Example of DAX measures created in Power Pivot.*
 
@@ -800,9 +812,9 @@ The dashboard serves as the main monitoring interface of the system. It combines
 
 Instead of manually reviewing multiple tables to understand sales performance or stock levels, the dashboard provides a **central overview of the business in one place**.
 
-![Dashboard Overview](images/dashboard_overview.png)
+<img width="914" height="466" alt="dasboard_filter" src="https://github.com/user-attachments/assets/eb79e0b4-ec4c-4387-9484-8078567a5c46" />
 
-*Main dashboard showing key metrics, product performance, and inventory indicators.*
+*Screenshot: Dashboard filtered by the Body Spray category, showing the revenue, profit, stock levels, and product performance for body spray products only.*
 
 ---
 
@@ -829,7 +841,8 @@ These KPIs provide a quick summary of both **sales performance and inventory hea
 
 The dashboard includes a chart that tracks **revenue performance by month**.
 
-![Revenue Trend](images/revenue_trend.png)
+
+<img width="187" height="106" alt="revenue_month" src="https://github.com/user-attachments/assets/c9729aee-2054-4339-aa60-9cb95a31e11e" />
 
 This visualization helps the business owner quickly identify:
 
@@ -845,7 +858,8 @@ Tracking revenue trends makes it easier to understand customer demand and busine
 
 The dashboard highlights **top-performing products based on profit contribution**.
 
-![Top Products by Profit](images/top_products_profit.png)
+
+<img width="219" height="149" alt="inventory_profit" src="https://github.com/user-attachments/assets/e7e0065b-936a-4e90-be98-a54b4e936131" />
 
 This helps the business owner quickly identify products that generate the most profit. These insights can support decisions such as:
 
@@ -859,8 +873,7 @@ This helps the business owner quickly identify products that generate the most p
 
 The dashboard also analyzes **sales performance by channel**.
 
-![Sales Channel Performance](images/sales_channel_performance.png)
-
+<img width="178" height="132" alt="sales_performance" src="https://github.com/user-attachments/assets/2fefc4ce-cdbd-45fc-8a5c-0b055a30a5a0" />
 This allows the business owner to see where sales are coming from and understand which channels contribute the most revenue.
 
 ---
@@ -907,7 +920,8 @@ This filtering capability allows the business owner to quickly answer questions 
 
 Because the dashboard relies on pivot tables and the Excel Data Model, a **Refresh Button** powered by VBA was added to the dashboard.
 
-![Refresh Button](images/dashboard_refresh_button.png)
+
+<img width="379" height="28" alt="refresh" src="https://github.com/user-attachments/assets/d66e242f-cda0-43ee-af22-0469fab6d5bf" />
 
 After recording new sales or purchase transactions, the business owner can click the refresh button to update the entire model so that all charts and KPIs reflect the most recent data.
 
@@ -933,7 +947,8 @@ This table stores the master information for each item, including the product ca
 
 Each product is assigned a **unique Product ID**, which acts as the primary key used to connect product information across the system.
 
-![Products Table](images/products_table.png)
+
+<img width="191" height="463" alt="productid" src="https://github.com/user-attachments/assets/ab82e13f-d4f1-4cc9-ac17-b800316d732c" />
 
 ---
 
@@ -948,12 +963,13 @@ Several fields are automatically generated or retrieved from the Products table,
 - Product ID  
 - Product Size  
 - Product Price  
-- Transaction Date  
-- Sales ID  
+- Transaction records
+- This automation helps reduce manual errors and ensures consistent transaction records.
+  
+  <img width="255" height="327" alt="Screenshot 2026-03-24 112345" src="https://github.com/user-attachments/assets/52194301-141f-4376-a440-30e8aace71ef" />
+  
+*Illustration: Sales Entry Form used to record customer purchase transactions.*
 
-This automation helps reduce manual errors and ensures consistent transaction records.
-
-![Sales Entry Form](images/sales_entry_form.png)
 
 ---
 
@@ -965,7 +981,9 @@ The submitted data is written to the **Purchases Table**, which tracks incoming 
 
 This allows the system to track how much inventory is entering the business over time.
 
-![Purchase Entry Form](images/purchase_entry_form.png)
+
+<img width="234" height="260" alt="Screenshot 2026-03-24 112430" src="https://github.com/user-attachments/assets/cbae13b0-9817-48ad-a0d4-913f82c96d84" />
+*Illustration: Purchase Entry Form used to record inventory restocking from vendors.*
 
 ---
 
@@ -979,7 +997,8 @@ Current Stock = Total Purchased − Total Sold
 
 These calculations populate the **Inventory Table**, which continuously tracks the available stock level for every product.
 
-![Inventory Table](images/inventory_table.png)
+
+<img width="919" height="478" alt="Screenshot 2026-03-24 111832" src="https://github.com/user-attachments/assets/e6c5ee0b-f4db-4aff-88f9-cd86ffa2e26a" />
 
 ---
 
@@ -989,7 +1008,9 @@ The system includes a **Product Price Update Module** that allows the business o
 
 When a new price is entered, the system updates the relevant fields in the **Products Table**, ensuring that future transactions reflect the updated cost and selling price.
 
-![Product Update Module](images/product_update_module.png)
+<img width="200" height="199" alt="Screenshot 2026-03-24 112656" src="https://github.com/user-attachments/assets/5225fabb-2352-4512-b914-0e064180d17f" />
+
+*Illustration: Product Price Update Form used to update cost and selling prices when supplier prices change.*
 
 ---
 
@@ -1011,10 +1032,6 @@ These relationships allow Excel to combine information across multiple tables an
 ### Step 7 — Dashboard Insights
 
 The processed data is then visualized through the **dashboard**, which displays key business metrics, product performance indicators, and inventory status.
-
-Interactive filters allow the user to analyze performance by category, brand, or time period.
-
-![Dashboard Overview](images/dashboard_overview.png)
 
 ---
 
@@ -1047,7 +1064,8 @@ The main tables in the system include:
 
 These tables are connected using **Product ID**, which allows Excel to combine information across different tables when generating reports and dashboard insights.
 
-![Data Model](images/data_model.png)
+
+<img width="943" height="502" alt="Screenshot 2026-03-24 115307" src="https://github.com/user-attachments/assets/c9237feb-27f6-4a81-b7cb-7b4b63596662" />
 
 ---
 
