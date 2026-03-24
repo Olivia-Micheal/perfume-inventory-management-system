@@ -390,3 +390,269 @@ The Data Model allows the system to:
 - drive dashboard visualizations
 
 This structure also made it possible to create analytical measures such as **Total Revenue, Profit, Inventory Value, and Stock Risk indicators**, which power the dashboard analysis shown later in this project.
+
+
+
+## 7. Sales Entry System
+
+To make daily sales recording easier, I built a **Sales Entry Form** instead of entering transactions directly into the Sales table. This form acts as the interface where the business owner records customer orders in a structured way.
+
+![Sales Entry Form](images/sales_entry_form.png)
+
+*Sales Entry Form used to record customer transactions.*
+
+### Automated Fields
+
+Some fields in the form are generated automatically to simplify data entry.
+
+- **Date** is automatically generated. Each time the form is cleared, the system updates the date to the current day.
+- **Sales ID** is automatically generated to uniquely identify each order recorded in the system.
+
+This helps the business owner keep track of how many orders have been recorded.
+
+---
+
+### Product Selection Logic
+
+The form uses dropdown lists linked to the **Products table** to ensure that only valid product combinations can be selected.
+
+The selection follows the product hierarchy:
+
+Category → Brand → Product Name
+
+For example, when the user selects **Body Spray** as the category, the brand dropdown will only display brands that belong to that category. After selecting a brand, the product dropdown shows only products under that brand.
+
+Once a product is selected, the system automatically retrieves the following information from the Products table using **XLOOKUP formulas**:
+
+- Product ID  
+- Product Size  
+- Cost Price  
+- Selling Price  
+
+This ensures that product information remains consistent across the system.
+
+---
+
+### Recording a Sales Transaction
+
+After selecting the product, the user enters:
+
+- Customer Name  
+- Quantity purchased  
+- Sales Channel
+
+Once the **Submit** button is clicked, the transaction is automatically written into the **Sales table**, where it becomes part of the system’s transaction records.
+
+---
+
+### Form Control Buttons
+
+The form includes three buttons that control how transactions are handled.
+
+**Submit**
+
+Records the sales transaction and sends the data to the Sales table using VBA automation.
+
+**Clear**
+
+Resets the form after a transaction has been recorded, preparing it for the next customer order. Clearing the form also generates the next Sales ID.
+
+**Delete**
+
+Removes the most recent transaction from the Sales table. This is useful when a transaction is recorded incorrectly or entered twice.
+
+---
+
+### Why the Entry Form Matters
+
+Without the entry form, the business owner would need to manually type transactions directly into the Sales table. This increases the risk of errors and makes the system harder to manage.
+
+By introducing a structured entry form with automated fields and dropdown selections, the system ensures that sales records are captured consistently while keeping the transaction process fast and simple.
+
+
+## 8. Purchase Entry System
+
+In addition to recording sales, the system also includes a **Purchase Entry Form** used to record inventory restocking. This form allows the business owner to track products purchased from vendors and update stock levels in the system.
+
+![Purchase Entry Form](images/purchase_entry_form.png)
+
+*Purchase Entry Form used to record inventory restocking transactions.*
+
+### Purpose of the Purchase Entry Form
+
+The purpose of this form is to ensure that every product restocked from the market is properly recorded. Instead of typing purchase records directly into the Purchases table, the business owner records transactions through this form.
+
+This approach keeps the purchase records structured and prevents accidental edits to the transaction table.
+
+---
+
+### Product Selection
+
+Just like the Sales Entry Form, the Purchase Entry Form uses dropdown selections linked to the **Products table**.
+
+The user selects:
+
+Category → Brand → Product Name
+
+Once the product is selected, the system automatically retrieves key product information such as:
+
+- Product ID  
+- Product Size  
+- Cost Price  
+
+This ensures that the correct product details are always recorded during restocking.
+
+---
+
+### Recording a Purchase Transaction
+
+To record a purchase transaction, the user enters:
+
+- Vendor Name  
+- Quantity Purchased  
+- Purchase Date
+
+After entering these details, the user clicks the **Submit** button. The system then automatically writes the purchase record into the **Purchases table**.
+
+Each purchase transaction increases the available stock of that product in the system.
+
+---
+
+### Form Control Buttons
+
+The Purchase Entry Form also includes control buttons to simplify the recording process.
+
+**Submit**
+
+Records the purchase transaction and transfers the data into the Purchases table using VBA automation.
+
+**Clear**
+
+Resets the form after a purchase has been recorded, allowing the user to quickly record another restocking transaction.
+
+---
+
+### Why This Form Matters
+
+Without a structured purchase recording system, it becomes difficult to track how much inventory has been restocked over time.
+By recording all restocking transactions through the Purchase Entry Form, the system ensures that inventory inflow is captured correctly. This data is later used by the Inventory table to calculate current stock levels and inventory value.
+
+
+## 9. Product Price Update Module
+
+Product prices in a retail business can change over time, especially when restocking products from vendors. Instead of manually searching through the Products table to update prices, the system includes a **Product Price Update Module** that allows price changes to be handled quickly and safely.
+
+![Product Price Update Form](images/product_price_update_form.png)
+
+*Product Price Update module used to modify product cost and selling prices.*
+
+### Purpose of the Update Module
+
+The purpose of this module is to make it easy for the business owner to update product prices whenever market prices change.
+
+When a product is restocked and the cost price increases, the business owner can adjust both the **Cost Price** and **Selling Price** using this form without editing the Products table directly.
+
+This prevents accidental modifications to the product data and keeps price updates organized.
+
+---
+
+### Product Selection Process
+
+The update form follows the same product hierarchy used throughout the system:
+
+Category → Brand → Product Name
+
+The user first selects the product category, then the brand, and finally the specific product. Once the product is selected, the system automatically retrieves the following information from the **Products table**:
+
+- Product ID  
+- Product Size  
+- Current Cost Price  
+- Current Selling Price  
+
+These values appear automatically in the form using **XLOOKUP formulas**.
+
+---
+
+### Updating Product Prices
+
+After the product details are retrieved, the user enters:
+
+- New Cost Price  
+- New Selling Price  
+
+When the **Update button** is clicked, the system automatically updates the corresponding row in the **Products table**.
+
+This ensures that all future sales transactions use the updated price.
+
+---
+
+### Why This Module Matters
+
+Without a dedicated update system, price changes would require manually editing rows in the Products table. This can easily lead to mistakes, especially when managing many products.
+
+By introducing a controlled update form, the system ensures that product pricing remains accurate while keeping the data management process simple for the business owner.
+
+
+## 10. Automation Implemented with VBA
+
+To make the system easier to use and reduce repetitive manual work, I implemented several automations using VBA (Visual Basic for Applications).
+
+![VBA Automation Example](images/vba_code_example.png)
+
+
+These automations allow the forms and dashboard to interact directly with the system tables and data model, ensuring that transactions are recorded correctly while keeping the workflow simple for the business owner.
+
+### Submit Automation
+
+The Submit buttons in both the Sales Entry Form and Purchase Entry Form are powered by VBA.
+
+When the Submit button is clicked, the VBA script automatically transfers the data entered in the form into the appropriate transaction table.
+
+For example:
+
+- Sales transactions are written to the Sales table  
+- Purchase transactions are written to the Purchases table  
+
+This removes the need for manual copying or editing of tables.
+
+---
+
+### Clear Form Automation
+
+The Clear button resets the form fields after a transaction has been recorded.
+
+This prepares the form for the next customer order and automatically generates the next Sales ID, allowing the business owner to continue recording transactions without interruption.
+
+---
+
+### Delete Automation
+
+The Delete button allows the user to remove the most recent transaction from the Sales table.
+
+This feature is useful when a transaction is entered incorrectly or submitted twice. Instead of manually locating the row in the table, the user can simply click the Delete button to remove the entry.
+
+---
+
+### Product Price Update Automation
+
+The Update button in the Product Price Update Module is also powered by VBA.
+
+When the user enters a new cost price and selling price and clicks the Update button, the VBA script locates the correct row in the Products table and updates the pricing information automatically.
+
+---
+
+### Dashboard Refresh Automation
+
+The dashboard includes a Refresh button powered by VBA.
+
+After recording sales or purchase transactions, the dashboard does not update automatically because Pivot Tables and the Data Model require a refresh to display the latest data.
+
+When the Refresh button is clicked, the VBA script refreshes:
+
+- Pivot Tables  
+- Data Model connections  
+- Dashboard charts and KPIs  
+
+This allows the business owner to immediately see updated business performance after recording transactions.
+
+
