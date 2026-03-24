@@ -1,5 +1,5 @@
 # perfume-inventory-management-system
-Excel-based inventory management system for a perfume business that tracks sales, purchases, stock levels, and profitability. Built using Power Pivot, DAX, and VBA automation.
+Excel-based inventory management system for a perfume business that tracks sales, purchases, stock levels, and profitability. Built using Power Pivot, DAX, and VBA automation
 
 
 ## Project Overview
@@ -13,7 +13,7 @@ The solution is built around multiple connected tables within the Excel Data Mod
 Together, these components create a workflow where daily business activities are recorded, structured, and automatically translated into analytical insights. The dashboard then provides a clear overview of sales performance, inventory status, product profitability, and stock risks, helping the business owner make more informed operational and restocking decisions.
 
 
-## 3. Business Problem
+##  Business Problem
 
 Many small perfume retailers manage their inventory and sales using notebooks, memory, or simple spreadsheets. While this may work when the business is small, it quickly becomes unreliable as the number of products and daily transactions increases.
 
@@ -32,7 +32,7 @@ This project was developed to address these challenges by creating a structured 
 
 
 
-## 4. Tools and Technologies Used
+##  Tools and Technologies Used
 
 The system was implemented using **Microsoft Excel with Power Pivot for data modeling, DAX for analytical calculations, and VBA for automation**. These components work together to transform raw transaction records into a structured inventory tracking and business analytics system.
 
@@ -66,7 +66,7 @@ Pivot Tables and Pivot Charts are used as the reporting interface connected to t
 Data Validation is used within the entry forms to create controlled dropdown selections for product attributes such as **category, brand, and product name**. This ensures that data entered into the system follows a consistent structure and prevents incorrect or inconsistent product entries. It also supports the hierarchical product structure used in the system, where product selection follows the relationship between category, brand, and individual product names.
 
 
-## 5. System Architecture
+## System Architecture
 
 This project was designed as a structured Excel system rather than a single spreadsheet. Instead of storing everything in one sheet, the system separates product information, transactions, inventory calculations, and analysis into different connected tables.
 
@@ -225,7 +225,7 @@ The system works in the following sequence:
 This structure allows the system to function as a **simple inventory management and business analysis tool built entirely in Excel**.
 
 
-## 6. Data Model Structure
+##  Data Model Structure
 
 Before building the dashboard, I had to first structure the data properly. One thing I learned while working on this project is that dashboards become easy only after the data behind them is organized correctly. At the beginning, some of my pivot tables were not behaving the way I expected. I kept trying different fixes until I realized the real issue was not the pivot tables. The real issue was how the tables were structured and connected.
 
@@ -393,7 +393,7 @@ This structure also made it possible to create analytical measures such as **Tot
 
 
 
-## 7. Sales Entry System
+##  Sales Entry System
 
 To make daily sales recording easier, I built a **Sales Entry Form** instead of entering transactions directly into the Sales table. This form acts as the interface where the business owner records customer orders in a structured way.
 
@@ -470,7 +470,7 @@ Without the entry form, the business owner would need to manually type transacti
 By introducing a structured entry form with automated fields and dropdown selections, the system ensures that sales records are captured consistently while keeping the transaction process fast and simple.
 
 
-## 8. Purchase Entry System
+##  Purchase Entry System
 
 In addition to recording sales, the system also includes a **Purchase Entry Form** used to record inventory restocking. This form allows the business owner to track products purchased from vendors and update stock levels in the system.
 
@@ -538,7 +538,7 @@ Without a structured purchase recording system, it becomes difficult to track ho
 By recording all restocking transactions through the Purchase Entry Form, the system ensures that inventory inflow is captured correctly. This data is later used by the Inventory table to calculate current stock levels and inventory value.
 
 
-## 9. Product Price Update Module
+##  Product Price Update Module
 
 Product prices in a retail business can change over time, especially when restocking products from vendors. Instead of manually searching through the Products table to update prices, the system includes a **Product Price Update Module** that allows price changes to be handled quickly and safely.
 
@@ -593,7 +593,7 @@ Without a dedicated update system, price changes would require manually editing 
 By introducing a controlled update form, the system ensures that product pricing remains accurate while keeping the data management process simple for the business owner.
 
 
-## 10. Automation Implemented with VBA
+##  Automation Implemented with VBA
 
 To make the system easier to use and reduce repetitive manual work, I implemented several automations using VBA (Visual Basic for Applications).
 
@@ -656,7 +656,7 @@ When the Refresh button is clicked, the VBA script refreshes:
 This allows the business owner to immediately see updated business performance after recording transactions.
 
 
-## 11. Analytical Measures Built with DAX
+##  Analytical Measures Built with DAX
 
 To generate business insights from the data model, I created several analytical measures using **DAX (Data Analysis Expressions)** in Power Pivot. These measures power the KPI cards and charts displayed on the dashboard.
 
@@ -776,7 +776,7 @@ The measure counts the number of products whose stock status falls into either o
 Together, these measures transform raw transaction data into meaningful business insights. They allow the business owner to monitor sales performance, profitability, and inventory health from a single dashboard.
 
 
-## 12. Dashboard and Business Insights
+##  Dashboard and Business Insights
 
 The dashboard serves as the main monitoring interface of the system. It combines information from the **Sales, Purchases, Products, and Inventory tables** and presents the most important business metrics in a simple visual format.
 
@@ -899,7 +899,7 @@ Overall, the dashboard transforms raw transaction data into actionable business 
 
 
 
-## 13. System Workflow
+##  System Workflow
 
 This section explains how data moves through the system from **daily transactions to business insights**.
 
@@ -1012,7 +1012,7 @@ Through this workflow, the system converts **daily operational transactions into
 
 
 
-## 14. Skills Demonstrated and System Usage
+##  Skills Demonstrated and System Usage
 
 This project required combining several technical and analytical skills to design a structured system that supports real business operations. The system was built not just as a spreadsheet, but as a small data-driven application that allows a business owner to manage sales, inventory, and pricing in an organized way.
 
@@ -1239,7 +1239,7 @@ By following this workflow, the system allows the business owner to efficiently 
 
 
 
-## 15. Conclusion
+##  Conclusion
 
 This project presents a complete **Excel-based inventory and sales management system** designed for a perfume retail business. The goal of the system was to replace manual record keeping and guesswork with a structured process that allows the business owner to track sales, manage inventory, monitor profitability, and make better operational decisions.
 
@@ -1290,7 +1290,7 @@ Overall, this project demonstrates how structured data modeling, automation, and
 
 
 
-## 14. Author & Contact
+##  Author & Contact
 
 **Olivia Michael**
 
